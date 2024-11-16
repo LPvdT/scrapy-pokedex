@@ -14,7 +14,8 @@ dependencies = [
 
 [project.scripts]
 main = "scrapy_pokedex:main"
-run = "scripts:scripts.run"
+run = "scrapy_pokedex:scripts.run"
+types = "scrapy_pokedex:scripts.types"
 
 [build-system]
 requires = [
@@ -36,3 +37,8 @@ test = [
     "pytest-mock>=3.14.0",
     "pytest-xdist>=3.6.1",
 ]
+
+[tool.mypy]
+mypy_path = "src/types"
+namespace_packages = true
+explicit_package_bases = true

@@ -3,10 +3,11 @@
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-from scrapy import signals
-
 # useful for handling different item types with a single interface
-from itemadapter import is_item, ItemAdapter
+from typing import Self
+
+from itemadapter import ItemAdapter, is_item  # noqa E402
+from scrapy import signals
 
 
 class ScrapyPokedexSpiderMiddleware:
@@ -15,7 +16,7 @@ class ScrapyPokedexSpiderMiddleware:
     # passed objects.
 
     @classmethod
-    def from_crawler(cls, crawler):
+    def from_crawler(cls, crawler) -> Self:
         # This method is used by Scrapy to create your spiders.
         s = cls()
         crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
