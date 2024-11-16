@@ -36,3 +36,8 @@ test = [
     "pytest-mock>=3.14.0",
     "pytest-xdist>=3.6.1",
 ]
+
+[tool.mypy]
+mypy_path = "src/types"
+namespace_packages = true
+explicit_package_bases = true
