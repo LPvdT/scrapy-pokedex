@@ -11,14 +11,14 @@ from ..util.interceptor import InterceptHandler
 
 
 def _setup_filesystem() -> None:
+    # FIX: Not working; fix
+    logging.basicConfig(handlers=[InterceptHandler()], level=0, force=True)
+
     logger.add(
         LOG_DIR.joinpath("system_log").with_suffix(".log"),
         level="DEBUG",
         rotation="1 week",
     )
-
-    # FIX: Not working; fix
-    logging.basicConfig(handlers=[InterceptHandler()], level=0, force=True)
 
     logger.info("Setting up filesystem...")
     logger.debug(f"DATA_DIR: {DATA_DIR}")
