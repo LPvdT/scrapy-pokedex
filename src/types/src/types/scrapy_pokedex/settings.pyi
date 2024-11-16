@@ -1,0 +1,9 @@
+from _typeshed import Incomplete as Incomplete
+
+BOT_NAME: str
+SPIDER_MODULES: Incomplete
+NEWSPIDER_MODULE: str
+ROBOTSTXT_OBEY: bool
+REQUEST_FINGERPRINTER_IMPLEMENTATION: str
+TWISTED_REACTOR: str
+FEED_EXPORT_ENCODING: str
