@@ -1,4 +1,5 @@
 import scrapy
+from scrapy.http import Response
 
 from ..items import PokedexItem
 
@@ -16,7 +17,7 @@ class PokedexListSpider(scrapy.Spider):
         "type_2": "td:nth-child(5) span::text",
     }
 
-    def parse(self, response):
+    def parse(self, response: Response):
         all_tables = response.css("table.wikitable tr")
 
         for pokemon in all_tables:
