@@ -6,7 +6,8 @@
 import scrapy
 
 
-class ScrapyPokedexItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class PokedexItem(scrapy.Item):
+    number = scrapy.Field()
+    name = scrapy.Field()
+    type_1 = scrapy.Field()
+    type_2 = scrapy.Field()
