@@ -8,11 +8,13 @@ authors = [
 ]
 requires-python = ">=3.11"
 dependencies = [
+    "loguru>=0.7.2",
     "scrapy>=2.11.2",
 ]
 
 [project.scripts]
-scrapy-pokedex = "scrapy_pokedex:main"
+main = "scrapy_pokedex:main"
+run = "scripts:scripts.run"
 
 [build-system]
 requires = [
