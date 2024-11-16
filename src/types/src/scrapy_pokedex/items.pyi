@@ -1,0 +1,3 @@
+import scrapy
+
+class ScrapyPokedexItem(scrapy.Item): ...
