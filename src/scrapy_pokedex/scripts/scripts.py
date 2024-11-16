@@ -35,7 +35,7 @@ def run() -> None:
     SPIDER = "pokedex_list"
 
     cmd = shlex.split(
-        f"scrapy crawl -O {DATA_OUTPUT_DIR.joinpath('pep').with_suffix('.json')} --logfile {LOG_DIR.joinpath('scrapy_log').with_suffix('.log')} {SPIDER}"
+        f"scrapy crawl -O {DATA_OUTPUT_DIR.joinpath('pep').with_suffix('.jsonl')} --logfile {LOG_DIR.joinpath('scrapy_log').with_suffix('.log')} {SPIDER}"
     )
     logger.info(f"Running: {cmd}")
     subprocess.run(cmd, cwd=Path(__file__).parents[1])
