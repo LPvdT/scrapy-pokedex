@@ -36,3 +36,10 @@ repos:
     hooks:
       - id: mypy
         name: Mypy Type Checker
+
+  - repo: local
+    hooks:
+      - id: bash-pre-commit
+        name: Run pre-commit
+        entry: bash -c 'pre-commit run --all-files --show-diff-on-failure'
+        language: system
