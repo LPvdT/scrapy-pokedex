@@ -20,7 +20,7 @@ def _setup_filesystem() -> None:
         rotation="1 week",
     )
 
-    logger.info("Setting up filesystem...")
+    logger.info("Setting up filesystem:")
     logger.debug(f"DATA_DIR: {DATA_DIR}")
     logger.debug(f"DATA_OUTPUT_DIR: {DATA_OUTPUT_DIR}")
     logger.debug(f"LOG_DIR: {LOG_DIR}")
@@ -44,10 +44,11 @@ def run() -> None:
 def types() -> None:
     _setup_filesystem()
 
-    # TODO: Destructure package name and stub path
-    logger.info("Deleting existing stubs...")
-    subprocess.check_output(shlex.split("rm -rf src/scrapy_pokedex/typings"))
+    TYPES_DIR = "typings"
 
-    cmd = shlex.split("stubgen -p scrapy_pokedex -o src/scrapy_pokedex/typings")
+    logger.info(f"Deleting existing stubs folder: {TYPES_DIR}")
+    subprocess.check_output(shlex.split(f"rm -rf src/scrapy_pokedex/{TYPES_DIR}"))
+
+    cmd = shlex.split(f"stubgen -p scrapy_pokedex -o src/scrapy_pokedex/{TYPES_DIR}")
     logger.info(f"Running: {cmd}")
     subprocess.run(cmd)
