@@ -1,43 +1,35 @@
 import shlex
 import subprocess
-from pathlib import Path
+from typing import Callable
 
 from loguru import logger
 
-from ..util.constants import DATA_OUTPUT_DIR, SPIDER, TYPES_DIR
+from ..util.constants import COMMANDS
 
 
-def run() -> None:
-    cmd = shlex.split(
-        f"scrapy crawl -O {DATA_OUTPUT_DIR.joinpath('pep').with_suffix('.jsonl')} {SPIDER}"
-    )
-    logger.info(f"Running: {cmd}")
-    subprocess.run(cmd, cwd=Path(__file__).parents[1])
+@logger.catch
+def command_factory(command_name: str, *args: str) -> Callable[[], None]:
+    cmd = COMMANDS[command_name]
+
+    @logger.catch
+    def execute_command() -> None:
+        try:
+            if isinstance(cmd, str):
+                cmd_to_run = shlex.split(cmd)
+                logger.info(f"Running: {cmd_to_run}")
+                subprocess.run(cmd_to_run, cwd="src" if "cwd" in args else None)
+            elif isinstance(cmd, list):
+                for command in cmd:
+                    cmd_to_run = shlex.split(command)
+                    logger.info(f"Running: {cmd_to_run}")
+                    subprocess.run(cmd_to_run, cwd="src" if "cwd" in args else None)
+        except KeyError:
+            raise ValueError(f"Unknown command: {command_name}")
+
+    return execute_command
 
 
-def types() -> None:
-    logger.info(f"Deleting existing stubs folder: {TYPES_DIR}")
-    subprocess.check_output(shlex.split(f"rm -rf src/scrapy_pokedex/{TYPES_DIR}"))
-
-    cmd = shlex.split(f"stubgen -p scrapy_pokedex -o src/scrapy_pokedex/{TYPES_DIR}")
-    logger.info(f"Running: {cmd}")
-    subprocess.run(cmd)
-
-
-def precommit() -> None:
-    logger.info("Running pre-commit hooks")
-    cmd = shlex.split("pre-commit run --all-files")
-    logger.info(f"Running: {cmd}")
-    subprocess.run(cmd)
-
-
-def setup_precommit() -> None:
-    logger.info("Setting up pre-commit hooks")
-    cmd = shlex.split("pre-commit install")
-    logger.info(f"Running: {cmd}")
-    subprocess.run(cmd)
-
-    logger.info("Updating pre-commit hooks")
-    cmd = shlex.split("pre-commit autoupdate")
-    logger.info(f"Running: {cmd}")
-    subprocess.run(cmd)
+scrape = command_factory("scrape", "cwd")
+types = command_factory("gen_types")
+setup_precommit = command_factory("setup_precommit")
+precommit = command_factory("precommit")
