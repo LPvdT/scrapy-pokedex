@@ -1,5 +1,4 @@
 import logging
-import sys
 
 from loguru import logger
 
@@ -9,8 +8,6 @@ __all__ = ["_setup_filesystem"]
 
 
 def _setup_filesystem() -> None:
-    logger.add(sys.stdout, level=logging.INFO)
-
     logger.add(
         LOG_DIR.joinpath("info_log").with_suffix(".log"),
         level=logging.INFO,
