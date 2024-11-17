@@ -9,7 +9,7 @@
 
 BOT_NAME = "scrapy_pokedex"
 
-SPIDER_MODULES = ["scrapy_pokedex.spiders"]
+SPIDER_MODULES: list[str] = ["scrapy_pokedex.spiders"]
 NEWSPIDER_MODULE = "scrapy_pokedex.spiders"
 
 
