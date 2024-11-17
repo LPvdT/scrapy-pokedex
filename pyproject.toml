@@ -12,8 +12,10 @@ dependencies = [
     "scrapy>=2.11.2",
 ]
 
+[project.urls]
+Repository = "https://github.com/LPvdT/scrapy-pokedex.git"
+
 [project.scripts]
-main = "scrapy_pokedex:main"
 scrape = "scrapy_pokedex:scripts.scrape"
 types = "scrapy_pokedex:scripts.types"
 precommit = "scrapy_pokedex:scripts.precommit"
