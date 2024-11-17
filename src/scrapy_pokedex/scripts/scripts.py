@@ -22,3 +22,22 @@ def types() -> None:
     cmd = shlex.split(f"stubgen -p scrapy_pokedex -o src/scrapy_pokedex/{TYPES_DIR}")
     logger.info(f"Running: {cmd}")
     subprocess.run(cmd)
+
+
+def precommit() -> None:
+    logger.info("Running pre-commit hooks")
+    cmd = shlex.split("pre-commit run --all-files")
+    logger.info(f"Running: {cmd}")
+    subprocess.run(cmd)
+
+
+def setup_precommit() -> None:
+    logger.info("Setting up pre-commit hooks")
+    cmd = shlex.split("pre-commit install")
+    logger.info(f"Running: {cmd}")
+    subprocess.run(cmd)
+
+    logger.info("Updating pre-commit hooks")
+    cmd = shlex.split("pre-commit autoupdate")
+    logger.info(f"Running: {cmd}")
+    subprocess.run(cmd)
