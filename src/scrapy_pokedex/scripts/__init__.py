@@ -1,3 +1,3 @@
-from .scripts import precommit, run, setup_precommit, types
+from .scripts import precommit, scrape, setup_precommit, types
 
-__all__ = ["run", "types", "precommit", "setup_precommit"]
+__all__ = ["scrape", "types", "precommit", "setup_precommit"]
