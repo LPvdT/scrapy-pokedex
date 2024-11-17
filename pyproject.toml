@@ -44,6 +44,6 @@ test = [
 ]
 
 [tool.mypy]
-mypy_path = "src/types"
+mypy_path = "src/typings"
 namespace_packages = true
 explicit_package_bases = true
