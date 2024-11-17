@@ -17,3 +17,4 @@ wheels/
 
 # Scrapy output
 output/
+.scrapy/
