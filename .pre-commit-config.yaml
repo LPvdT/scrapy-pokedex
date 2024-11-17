@@ -30,9 +30,3 @@ repos:
         name: Markdown Formatter
         additional_dependencies:
           - mdformat-ruff
-
-  # - repo: https://github.com/pre-commit/mirrors-mypy
-  #   rev: v1.13.0
-  #   hooks:
-  #     - id: mypy
-  #       name: Mypy Type Checker
