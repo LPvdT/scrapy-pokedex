@@ -1,8 +1,7 @@
-from ..util.interceptor import InterceptHandler as InterceptHandler
-from scrapy_pokedex.scripts.constants import (
-    DATA_DIR as DATA_DIR,
+from ..util.constants import (
     DATA_OUTPUT_DIR as DATA_OUTPUT_DIR,
-    LOG_DIR as LOG_DIR,
+    SPIDER as SPIDER,
+    TYPES_DIR as TYPES_DIR,
 )
 
 def run() -> None: ...
