@@ -16,6 +16,7 @@ dependencies = [
 main = "scrapy_pokedex:main"
 run = "scrapy_pokedex:scripts.run"
 types = "scrapy_pokedex:scripts.types"
+precommit = "scrapy_pokedex:scripts.pc"
 
 [build-system]
 requires = [
