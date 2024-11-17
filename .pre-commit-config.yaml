@@ -30,3 +30,10 @@ repos:
         name: Markdown Formatter
         additional_dependencies:
           - mdformat-ruff
+          - mdformat-admon
+          - mdformat-footnote
+          - mdformat-frontmatter
+          - mdformat-gfm
+          - mdformat-gfm-alerts
+          - mdformat-tables
+          - mdformat-toc

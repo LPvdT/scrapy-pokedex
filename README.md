@@ -1,16 +1,29 @@
-# Scrapy Pokedex
+# Scrapy Pokedex<a name="scrapy-pokedex"></a>
 
 A Scrapy project for scraping Pokémon data.
 
-## To do
+<!-- mdformat-toc start --slug=github --maxlevel=6 --minlevel=1 -->
 
-- Further implement scraper
-  - Implement pipelines
-  - Implement middleware
-  - Implement proxies
-  - Implement agent headers
+- [Scrapy Pokedex](#scrapy-pokedex)
+  - [To do](#to-do)
+  - [Project Structure](#project-structure)
+  - [Requirements](#requirements)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contributing](#contributing)
+  - [License](#license)
 
-## Project Structure
+<!-- mdformat-toc end -->
+
+## To do<a name="to-do"></a>
+
+- [ ] Further implement scraper
+  - [ ] Implement pipelines
+  - [ ] Implement middleware
+  - [ ] Implement proxies
+  - [ ] Implement agent headers
+
+## Project Structure<a name="project-structure"></a>
 
 - `src/`: Source code directory
   - `scrapy_pokedex/`: Scrapy project directory
@@ -28,23 +41,23 @@ A Scrapy project for scraping Pokémon data.
       - `factory.py`: Factory functions for creating objects
       - `constants.py`: Constants used throughout the project
 
-## Requirements
+## Requirements<a name="requirements"></a>
 
 - [`uv`](https://docs.astral.sh/uv/)
 
-## Installation
+## Installation<a name="installation"></a>
 
 1. Clone the repository: `git clone https://github.com/LPvdT/scrapy-pokedex`
 1. Install dependencies: `uv sync --group dev --group test`
 
-## Usage
+## Usage<a name="usage"></a>
 
 1. Run the spider: `uv run scrape`
 
-## Contributing
+## Contributing<a name="contributing"></a>
 
 Contributions are welcome! Please submit a pull request with your changes.
 
-## License
+## License<a name="license"></a>
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
