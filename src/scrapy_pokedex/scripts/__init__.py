@@ -1,4 +1,4 @@
-from .factory import command_factory
+from ..util.factory import command_factory
 
 scrape = command_factory("scrape", "cwd")
 types = command_factory("gen_types")

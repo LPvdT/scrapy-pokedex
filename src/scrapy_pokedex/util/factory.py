@@ -4,7 +4,7 @@ from typing import Callable
 
 from loguru import logger
 
-from ..util.constants import COMMANDS
+from .constants import COMMANDS
 
 
 @logger.catch
