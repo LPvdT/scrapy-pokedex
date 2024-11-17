@@ -5,10 +5,10 @@ A Scrapy project for scraping Pokémon data.
 ## To do
 
 - Further implement scraper
-- Implement pipelines
-- Implement middleware
-- Implement proxies
-- Implement agent headers
+  - Implement pipelines
+  - Implement middleware
+  - Implement proxies
+  - Implement agent headers
 
 ## Project Structure
 
