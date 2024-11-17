@@ -23,6 +23,8 @@ A Scrapy project for scraping Pokémon data.
   - [ ] Implement proxies
   - [ ] Implement agent headers
 
+> [Nice resource](https://github.com/mazzasaverio/scrapy-playwright-scrapegraphai) for Scrapy project configuration/structure.
+
 ## Project Structure<a name="project-structure"></a>
 
 - `src/`: Source code directory
