@@ -19,10 +19,13 @@ A Scrapy project for scraping Pokémon data.
 
 - Further implement scraper
   - [x] Implement spider
-  - [ ] Implement pipelines
+  - Implement pipelines
+    - [ ] Implement [Item Loader](https://docs.scrapy.org/en/latest/topics/loaders.html)
   - [ ] Implement middleware
+    - Where applicable
   - [ ] Implement proxies
-  - [ ] Implement agent headers
+    - Use tbe free options, without the requirement of all kind of shitty paid options
+  - [ ] Implement agent header rotation
 
 > [Nice resource](https://github.com/mazzasaverio/scrapy-playwright-scrapegraphai) for Scrapy project configuration/structure.
 
