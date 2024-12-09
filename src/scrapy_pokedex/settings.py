@@ -44,15 +44,15 @@ TELNETCONSOLE_ENABLED = True
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-# SPIDER_MIDDLEWARES = {
-#    "scrapy_pokedex.middlewares.ScrapyPokedexSpiderMiddleware": 543,
-# }
+SPIDER_MIDDLEWARES = {
+    "scrapy_pokedex.middlewares.ScrapyPokedexSpiderMiddleware": 543,
+}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-# DOWNLOADER_MIDDLEWARES = {
-#    "scrapy_pokedex.middlewares.ScrapyPokedexDownloaderMiddleware": 543,
-# }
+DOWNLOADER_MIDDLEWARES = {
+    "scrapy_pokedex.middlewares.ScrapyPokedexDownloaderMiddleware": 543,
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -62,9 +62,9 @@ TELNETCONSOLE_ENABLED = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-# ITEM_PIPELINES = {
-#    "scrapy_pokedex.pipelines.ScrapyPokedexPipeline": 300,
-# }
+ITEM_PIPELINES = {
+    "scrapy_pokedex.pipelines.ScrapyPokedexPipeline": 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
@@ -88,6 +88,5 @@ HTTPCACHE_IGNORE_HTTP_CODES: list[str | int] = []
 HTTPCACHE_STORAGE = "scrapy.extensions.httpcache.FilesystemCacheStorage"
 
 # Set settings whose default value is deprecated to a future-proof value
-REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"

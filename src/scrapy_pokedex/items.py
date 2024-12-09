@@ -7,7 +7,15 @@ import scrapy
 
 
 class PokedexItem(scrapy.Item):
+    icon_url = scrapy.Field()
     number = scrapy.Field()
     name = scrapy.Field()
-    type_1 = scrapy.Field()
-    type_2 = scrapy.Field()
+    name_alt = scrapy.Field()
+    types = scrapy.Field()
+    total = scrapy.Field()
+    hp = scrapy.Field()
+    attack = scrapy.Field()
+    defense = scrapy.Field()
+    sp_atk = scrapy.Field()
+    sp_def = scrapy.Field()
+    speed = scrapy.Field()

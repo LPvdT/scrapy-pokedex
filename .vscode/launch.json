@@ -1,12 +1,17 @@
 {
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "scrapy_pokedex.scripts",
-      "type": "debugpy",
-      "request": "launch",
-      "module": "scrapy_pokedex.scripts",
-      "console": "integratedTerminal"
-    }
-  ]
+    "version": "0.1.0",
+    "configurations": [
+        {
+            "name": "Python: Launch Scrapy Spider",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "scrapy",
+            "cwd": "${workspaceFolder}/src",
+            "args": [
+                "runspider",
+                "${workspaceFolder}/src/scrapy_pokedex/spiders/pokedex_list.py"
+            ],
+            "console": "integratedTerminal"
+        }
+    ]
 }
