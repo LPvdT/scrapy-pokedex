@@ -4,6 +4,7 @@ import scrapy
 from scrapy.http import Response
 
 from scrapy_pokedex.items import PokedexItem
+from scrapy_pokedex.util.constants import MAX_ROWS
 
 
 class PokedexListSpider(scrapy.Spider):
@@ -28,6 +29,10 @@ class PokedexListSpider(scrapy.Spider):
         "name": {
             "type": "css",
             "selector": "td:nth-child(2) a::text",
+        },
+        "name_alt": {
+            "type": "css",
+            "selector": "td:nth-child(2) small::text",
         },
         "types": {
             "type": "xpath",
@@ -66,9 +71,6 @@ class PokedexListSpider(scrapy.Spider):
     def parse(self, response: Response) -> Generator[PokedexItem, Any, None]:
         table = response.xpath(self.table_xpath)
         rows = table.xpath(self.table_rows)
-
-        # DEBUG
-        MAX_ROWS: int = 10
 
         for row in rows[:MAX_ROWS]:
             for key, query in self.queries.items():
