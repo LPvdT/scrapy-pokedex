@@ -18,6 +18,7 @@ A Scrapy project for scraping Pokémon data.
 ## To do<a name="to-do"></a>
 
 - Further implement scraper
+  - [x] Implement spider
   - [ ] Implement pipelines
   - [ ] Implement middleware
   - [ ] Implement proxies
