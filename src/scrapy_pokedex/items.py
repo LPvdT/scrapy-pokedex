@@ -10,6 +10,7 @@ class PokedexItem(scrapy.Item):
     icon_url = scrapy.Field()
     number = scrapy.Field()
     name = scrapy.Field()
+    name_alt = scrapy.Field()
     types = scrapy.Field()
     total = scrapy.Field()
     hp = scrapy.Field()
