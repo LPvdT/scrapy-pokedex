@@ -1,6 +1,6 @@
 from urllib.parse import urlparse
 
-import itemloaders.processors as pc
+from itemloaders.processors import Compose, MapCompose, TakeFirst
 from scrapy.loader import ItemLoader
 
 from .items import PokedexItem
@@ -14,24 +14,28 @@ def is_valid_url(url: str) -> bool:
         return False
 
 
+to_int = Compose(TakeFirst(), int)
+
+
 class PokedexLoader(ItemLoader):
     default_item_class = PokedexItem
-    default_input_processor = pc.TakeFirst()
-    default_output_processor = pc.TakeFirst()
-
-    # Input processors
-    types_in = pc.Identity()
 
     # Output processors
-    icon_url_out = pc.MapCompose(lambda v: v if is_valid_url(v) else None)
-    number_out = pc.MapCompose(lambda v: v.lstrip("0"), lambda v: int(v))
-    name_out = pc.MapCompose(lambda v: v.strip())
-    name_alt_out = pc.MapCompose(lambda v: v.strip() if v is not None else None)
-    types_out = pc.MapCompose(lambda v: [x.strip() for x in v])
-    total_out = pc.MapCompose(lambda v: int(v))
-    hp_out = pc.MapCompose(lambda v: int(v))
-    attack_out = pc.MapCompose(lambda v: int(v))
-    defense_out = pc.MapCompose(lambda v: int(v))
-    sp_atk_out = pc.MapCompose(lambda v: int(v))
-    sp_def_out = pc.MapCompose(lambda v: int(v))
-    speed_out = pc.MapCompose(lambda v: int(v))
+    icon_url_out = Compose(
+        MapCompose(lambda v: v if is_valid_url(v) else None), TakeFirst()
+    )
+    number_out = Compose(
+        MapCompose(lambda v: v.lstrip("0"), lambda v: int(v)), TakeFirst()
+    )
+    name_out = Compose(MapCompose(lambda v: v.strip()), TakeFirst())
+    name_alt_out = Compose(
+        MapCompose(lambda v: v.strip() if v is not None else ""), TakeFirst()
+    )
+    types_out = MapCompose(lambda v: v.strip())
+    total_out = to_int
+    hp_out = to_int
+    attack_out = to_int
+    defense_out = to_int
+    sp_atk_out = to_int
+    sp_def_out = to_int
+    speed_out = to_int
