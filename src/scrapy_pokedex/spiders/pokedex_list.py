@@ -4,6 +4,7 @@ import scrapy
 from scrapy.http import Response
 
 from scrapy_pokedex.items import PokedexItem
+from scrapy_pokedex.loaders import PokedexLoader
 from scrapy_pokedex.util.constants import MAX_ROWS
 
 
@@ -12,76 +13,26 @@ class PokedexListSpider(scrapy.Spider):
     allowed_domains = ["pokemondb.net"]
     start_urls = ["https://pokemondb.net/pokedex/all"]
 
-    item = PokedexItem()
-
     table_xpath = '//*[@id="pokedex"]'
     table_rows = "//tbody/tr"
-
-    queries = {
-        "icon_url": {
-            "type": "css",
-            "selector": "td:nth-child(1) picture img::attr(src)",
-        },
-        "number": {
-            "type": "css",
-            "selector": "td:nth-child(1) span::text",
-        },
-        "name": {
-            "type": "css",
-            "selector": "td:nth-child(2) a::text",
-        },
-        "name_alt": {
-            "type": "css",
-            "selector": "td:nth-child(2) small::text",
-        },
-        "types": {
-            "type": "xpath",
-            "selector": "td[3]/a/text()",  # This may yield a list of types
-        },
-        "total": {
-            "type": "css",
-            "selector": "td:nth-child(4)::text",
-        },
-        "hp": {
-            "type": "css",
-            "selector": "td:nth-child(5)::text",
-        },
-        "attack": {
-            "type": "css",
-            "selector": "td:nth-child(6)::text",
-        },
-        "defense": {
-            "type": "css",
-            "selector": "td:nth-child(7)::text",
-        },
-        "sp_atk": {
-            "type": "css",
-            "selector": "td:nth-child(8)::text",
-        },
-        "sp_def": {
-            "type": "css",
-            "selector": "td:nth-child(9)::text",
-        },
-        "speed": {
-            "type": "css",
-            "selector": "td:nth-child(10)::text",
-        },
-    }
 
     def parse(self, response: Response) -> Generator[PokedexItem, Any, None]:
         table = response.xpath(self.table_xpath)
         rows = table.xpath(self.table_rows)
 
         for row in rows[:MAX_ROWS]:
-            for key, query in self.queries.items():
-                match query.get("type"):
-                    case "xpath":
-                        entry_xpath = row.xpath(query["selector"]).getall()
-                        self.item[key] = entry_xpath
-                    case "css":
-                        entry_css = row.css(query["selector"]).get()
-                        self.item[key] = entry_css
-                    case _:
-                        raise ValueError(f"Unknown query type: {query['type']}")
+            loader = PokedexLoader(selector=row)
+            loader.add_css("icon_url", "td:nth-child(1) picture img::attr(src)")
+            loader.add_css("number", "td:nth-child(1) span::text")
+            loader.add_css("name", "td:nth-child(2) a::text")
+            loader.add_css("name_alt", "td:nth-child(2) small::text")
+            loader.add_xpath("types", "td[3]/a/text()")
+            loader.add_css("total", "td:nth-child(4)::text")
+            loader.add_css("hp", "td:nth-child(5)::text")
+            loader.add_css("attack", "td:nth-child(6)::text")
+            loader.add_css("defense", "td:nth-child(7)::text")
+            loader.add_css("sp_atk", "td:nth-child(8)::text")
+            loader.add_css("sp_def", "td:nth-child(9)::text")
+            loader.add_css("speed", "td:nth-child(10)::text")
 
-            yield self.item
+            yield loader.load_item()
