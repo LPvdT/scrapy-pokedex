@@ -1,6 +1,7 @@
 from _typeshed import Incomplete
 
-MAX_ROWS: int
+ENABLE_DEBUG: bool
+MAX_ROWS: int | None
 DEFAULT_OUTPUT: bool
 DATA_DIR: Incomplete
 DATA_OUTPUT_DIR: Incomplete
