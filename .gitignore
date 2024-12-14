@@ -18,3 +18,4 @@ wheels/
 # Scrapy output
 output/
 .scrapy/
+crawls/
