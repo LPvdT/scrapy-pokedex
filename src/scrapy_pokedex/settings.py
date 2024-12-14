@@ -7,6 +7,8 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
+from typing import Dict
+
 BOT_NAME = "scrapy_pokedex"
 
 SPIDER_MODULES: list[str] = ["scrapy_pokedex.spiders"]
@@ -44,13 +46,13 @@ TELNETCONSOLE_ENABLED = True
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-SPIDER_MIDDLEWARES = {
+SPIDER_MIDDLEWARES: Dict[str, int] = {
     "scrapy_pokedex.middlewares.ScrapyPokedexSpiderMiddleware": 543,
 }
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-DOWNLOADER_MIDDLEWARES = {
+DOWNLOADER_MIDDLEWARES: Dict[str, int] = {
     "scrapy_pokedex.middlewares.ScrapyPokedexDownloaderMiddleware": 543,
 }
 
@@ -62,7 +64,7 @@ DOWNLOADER_MIDDLEWARES = {
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
+ITEM_PIPELINES: Dict[str, int] = {
     "scrapy_pokedex.pipelines.ScrapyPokedexPipeline": 300,
 }
 
