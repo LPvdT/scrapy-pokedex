@@ -2,7 +2,7 @@ from pathlib import Path
 
 # Config
 # TODO: Move to YAML config file
-MAX_ROWS: int = 500
+MAX_ROWS: int = 10
 DEFAULT_OUTPUT: bool = False
 
 # Paths

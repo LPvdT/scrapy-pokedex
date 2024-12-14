@@ -22,6 +22,7 @@ class PokedexListSpider(scrapy.Spider):
 
         for row in rows[:MAX_ROWS]:
             loader = PokedexLoader(selector=row)
+
             loader.add_css("icon_url", "td:nth-child(1) picture img::attr(src)")
             loader.add_css("number", "td:nth-child(1) span::text")
             loader.add_css("name", "td:nth-child(2) a::text")
