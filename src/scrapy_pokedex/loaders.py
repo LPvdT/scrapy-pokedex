@@ -6,7 +6,7 @@ from scrapy.loader import ItemLoader
 from .items import PokedexItem
 
 
-def is_valid_url(url: str) -> bool:
+def _is_valid_url(url: str) -> bool:
     try:
         result = urlparse(url)
         return all([result.scheme, result.netloc])
@@ -14,28 +14,32 @@ def is_valid_url(url: str) -> bool:
         return False
 
 
-to_int = Compose(TakeFirst(), int)
+def _to_int(value: str) -> int:
+    return int(value.lstrip("0"))
 
 
 class PokedexLoader(ItemLoader):
     default_item_class = PokedexItem
+    to_int = Compose(MapCompose(_to_int), TakeFirst())
+
+    FIELDS_TO_INT = [
+        "total",
+        "hp",
+        "attack",
+        "defense",
+        "sp_atk",
+        "sp_def",
+        "speed",
+    ]
 
     # Output processors
     icon_url_out = Compose(
-        MapCompose(lambda v: v if is_valid_url(v) else None), TakeFirst()
+        MapCompose(lambda v: v if _is_valid_url(v) else None), TakeFirst()
     )
-    number_out = Compose(
-        MapCompose(lambda v: v.lstrip("0"), lambda v: int(v)), TakeFirst()
-    )
+    number_out = to_int
     name_out = Compose(MapCompose(lambda v: v.strip()), TakeFirst())
-    name_alt_out = Compose(
-        MapCompose(lambda v: v.strip() if v is not None else ""), TakeFirst()
-    )
+    name_alt_out = Compose(MapCompose(lambda v: v.strip()), TakeFirst())
     types_out = MapCompose(lambda v: v.strip())
-    total_out = to_int
-    hp_out = to_int
-    attack_out = to_int
-    defense_out = to_int
-    sp_atk_out = to_int
-    sp_def_out = to_int
-    speed_out = to_int
+
+    for field in FIELDS_TO_INT:
+        locals()[f"{field}_out"] = to_int
