@@ -28,8 +28,6 @@ A Scrapy project for scraping Pokémon data.
     - Use tbe free options, without the requirement of all kind of shitty paid options
   - [ ] Implement agent header rotation
 
-> [Nice resource](https://github.com/mazzasaverio/scrapy-playwright-scrapegraphai) for Scrapy project configuration/structure.
-
 ### Issues<a name="issues"></a>
 
 - [ ] `name_alt` field is omitted from output when it is not populated. I want to have it present as an empty string instead.
