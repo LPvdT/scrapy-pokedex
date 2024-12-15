@@ -5,11 +5,11 @@ from scrapy.http import Response
 
 from scrapy_pokedex.items import PokedexItem
 from scrapy_pokedex.loaders import PokedexLoader
-from scrapy_pokedex.util.constants import MAX_ROWS
+from scrapy_pokedex.settings import MAX_ROWS, SPIDER
 
 
 class PokedexListSpider(scrapy.Spider):
-    name = "pokedex_list"
+    name = SPIDER
     allowed_domains = ["pokemondb.net"]
     start_urls = ["https://pokemondb.net/pokedex/all"]
 
