@@ -7,6 +7,11 @@ import scrapy
 
 
 class PokedexItem(scrapy.Item):
+    # Image pipeline fields
+    image_urls = scrapy.Field()
+    images = scrapy.Field()
+
+    # Regular fields
     icon_url = scrapy.Field()
     number = scrapy.Field()
     name = scrapy.Field()

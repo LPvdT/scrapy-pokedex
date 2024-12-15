@@ -93,6 +93,16 @@ EXTENSIONS: Dict[str, int | None] = {
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES: Dict[str, int | None] = {
     "scrapy_pokedex.pipelines.ScrapyPokedexPipeline": 300,
+    "scrapy.pipelines.images.ImagesPipeline": 200,
+    "scrapy.pipelines.files.FilesPipeline": 100,
+}
+
+# Media pipeline settings
+FILES_STORE = "scrapy_pokedex/data/output/files"
+IMAGES_STORE = "scrapy_pokedex/data/output/images"
+IMAGES_THUMBS = {
+    "small": (50, 50),
+    "big": (270, 270),
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
