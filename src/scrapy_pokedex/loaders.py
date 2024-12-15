@@ -20,6 +20,7 @@ def _to_int(value: str) -> int:
 
 class PokedexLoader(ItemLoader):
     default_item_class = PokedexItem
+
     to_int = Compose(MapCompose(_to_int), TakeFirst())
 
     FIELDS_TO_INT = [
@@ -36,6 +37,7 @@ class PokedexLoader(ItemLoader):
     icon_url_out = Compose(
         MapCompose(lambda v: v if _is_valid_url(v) else None), TakeFirst()
     )
+    image_urls_out = icon_url_out
     number_out = to_int
     name_out = Compose(MapCompose(lambda v: v.strip()), TakeFirst())
     name_alt_out = Compose(MapCompose(lambda v: v.strip()), TakeFirst())
