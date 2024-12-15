@@ -47,6 +47,6 @@ test = [
 ]
 
 [tool.mypy]
-mypy_path = "src/typings"
+mypy_path = "src/scrapy_pokedex/typings"
 namespace_packages = true
 explicit_package_bases = true
