@@ -1,19 +1,12 @@
 from pathlib import Path
 
-# Config
-# TODO: Move to YAML config file
-ENABLE_DEBUG: bool = False
-MAX_ROWS: int | None = None
-DEFAULT_OUTPUT: bool = False
+from scrapy_pokedex.settings import DEFAULT_OUTPUT, MAX_ROWS, SPIDER
 
 # Paths
 DATA_DIR = Path(__package__).with_suffix("") / "data"
 DATA_OUTPUT_DIR = DATA_DIR / "output"
 LOG_DIR = DATA_DIR / "logs"
 TYPES_DIR = "typings"
-
-# Spider name
-SPIDER = "pokedex_list"
 JOB_DIR = DATA_DIR / "crawls" / f"{SPIDER}-1"
 
 # Output
