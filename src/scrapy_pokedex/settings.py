@@ -12,7 +12,7 @@ from typing import Dict
 # Custom config entries
 SPIDER = "pokedex_list"
 ENABLE_DEBUG: bool = False
-MAX_ROWS: int | None = 100
+MAX_ROWS: int | None = None
 DEFAULT_OUTPUT: bool = False
 
 # Scrapy settings
