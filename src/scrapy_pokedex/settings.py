@@ -52,25 +52,47 @@ TELNETCONSOLE_ENABLED = False
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-SPIDER_MIDDLEWARES: Dict[str, int] = {
+SPIDER_MIDDLEWARES: Dict[str, int | None] = {
     "scrapy_pokedex.middlewares.ScrapyPokedexSpiderMiddleware": 543,
 }
 
+# User-Agent randomization
+RANDOM_UA_PER_PROXY = True
+RANDOM_UA_TYPE = "random"
+RANDOM_UA_SAME_OS_FAMILY = False
+
+# Proxy randomization
+PROXY_LIST = "proxies.txt"
+# Proxy mode
+# 0 = Every requests have different proxy
+# 1 = Take only one proxy from the list and assign it to every requests
+# 2 = Put a custom proxy to use in the settings
+PROXY_MODE = 0
+# Retry many times since proxies often fail
+RETRY_TIMES = 10
+# Retry on most error codes since proxies fail for different reasons
+RETRY_HTTP_CODES = [500, 503, 504, 400, 403, 404, 408]
+
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-DOWNLOADER_MIDDLEWARES: Dict[str, int] = {
+DOWNLOADER_MIDDLEWARES: Dict[str, int | None] = {
     "scrapy_pokedex.middlewares.ScrapyPokedexDownloaderMiddleware": 543,
+    "scrapy_user_agents.middlewares.RandomUserAgentMiddleware": 400,
+    "scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware": 110,
+    "scrapy_proxies.RandomProxy": 100,
+    "scrapy.downloadermiddlewares.retry.RetryMiddleware": 90,
+    "scrapy.downloadermiddlewares.useragent.UserAgentMiddleware": None,
 }
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
-EXTENSIONS = {
+EXTENSIONS: Dict[str, int | None] = {
     "scrapy.extensions.telnet.TelnetConsole": None,
 }
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES: Dict[str, int] = {
+ITEM_PIPELINES: Dict[str, int | None] = {
     "scrapy_pokedex.pipelines.ScrapyPokedexPipeline": 300,
 }
 
