@@ -25,12 +25,12 @@ A Scrapy project for scraping Pokémon data.
   - [ ] Implement middleware
     - Where applicable
   - [ ] Implement proxies
-    - Use tbe free options, without the requirement of all kind of shitty paid options
+    - Use the free options, without the requirement of all kind of shitty paid options
   - [ ] Implement agent header rotation
 
 ### Issues<a name="issues"></a>
 
-- [ ] `name_alt` field is omitted from output when it is not populated. I want to have it present as an empty string instead.
+- [x] `name_alt` field is omitted from output when it is not populated. I want to have it present as an empty string instead.
 
 ## Project Structure<a name="project-structure"></a>
 
