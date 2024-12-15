@@ -19,7 +19,7 @@ DEFAULT_OUTPUT_URI = (
 
 # Commands for command_factory
 COMMANDS = {
-    "scrape": f"scrapy crawl {DEFAULT_OUTPUT if DEFAULT_OUTPUT else ''} {SPIDER} -s JOBDIR={JOB_DIR}",
+    "scrape": f"scrapy crawl {DEFAULT_OUTPUT_URI if DEFAULT_OUTPUT else ''} {SPIDER} -s JOBDIR={JOB_DIR}",
     "gen_types": f"stubgen -p scrapy_pokedex -o src/scrapy_pokedex/{TYPES_DIR}",
     "setup_precommit": ["pre-commit install", "pre-commit autoupdate"],
     "precommit": "pre-commit run --all-files",
