@@ -6,6 +6,9 @@ A Scrapy project for scraping Pokémon data.
 
 - [Scrapy Pokedex](#scrapy-pokedex)
   - [To do](#to-do)
+    - [Further implement scraper](#further-implement-scraper)
+      - [Open](#open)
+      - [Closed](#closed)
     - [Issues](#issues)
   - [Project Structure](#project-structure)
   - [Requirements](#requirements)
@@ -18,15 +21,22 @@ A Scrapy project for scraping Pokémon data.
 
 ## To do<a name="to-do"></a>
 
-- Further implement scraper
-  - [x] Implement spider
-  - Implement pipelines
-    - [x] Implement [Item Loader](https://docs.scrapy.org/en/latest/topics/loaders.html)
-  - [ ] Implement middleware
-    - Where applicable
-  - [x] Implement proxies
-    - Use the free options, without the requirement of all kind of shitty paid options
-  - [x] Implement agent header rotation
+### Further implement scraper<a name="further-implement-scraper"></a>
+
+#### Open<a name="open"></a>
+
+- [ ] Implement [downloading and processing files and images](https://docs.scrapy.org/en/latest/topics/media-pipeline.html#downloading-and-processing-files-and-images)
+
+#### Closed<a name="closed"></a>
+
+- [x] Implement spider
+- Implement pipelines
+  - [x] Implement [Item Loader](https://docs.scrapy.org/en/latest/topics/loaders.html)
+- [x] Implement middleware
+  - Does not really seem applicable now
+- [x] Implement proxies
+  - Use the free options, without the requirement of all kind of shitty paid options
+- [x] Implement agent header rotation
 
 ### Issues<a name="issues"></a>
 
