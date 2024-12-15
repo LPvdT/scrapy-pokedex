@@ -1,6 +1,10 @@
 from .items import PokedexItem as PokedexItem
 from _typeshed import Incomplete
+from scrapy.exporters import BaseItemExporter
 from scrapy_pokedex.util.constants import OUTPUT_PATH as OUTPUT_PATH
+from typing import TypeVar
+
+T = TypeVar("T", bound=BaseItemExporter)
 
 class ScrapyPokedexPipeline:
     file_jsonl: Incomplete
