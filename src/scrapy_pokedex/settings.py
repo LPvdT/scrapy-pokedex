@@ -12,7 +12,7 @@ from typing import Dict
 # Custom config entries
 SPIDER = "pokedex_list"
 ENABLE_DEBUG: bool = False
-MAX_ROWS: int | None = None
+MAX_ROWS: int | None = 50
 DEFAULT_OUTPUT: bool = False
 
 # Scrapy settings
@@ -93,15 +93,15 @@ EXTENSIONS: Dict[str, int | None] = {
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES: Dict[str, int | None] = {
     "scrapy_pokedex.pipelines.ScrapyPokedexPipeline": 300,
-    "scrapy.pipelines.images.ImagesPipeline": 200,
-    "scrapy.pipelines.files.FilesPipeline": 100,
+    "scrapy.pipelines.files.FilesPipeline": 200,
+    "scrapy.pipelines.images.ImagesPipeline": 100,
 }
 
 # Media pipeline settings
-FILES_STORE = "scrapy_pokedex/data/output/files"
+FILES_STORE = "./scrapy_pokedex/data/output/files"
 FILES_EXPIRES = 90
 
-IMAGES_STORE = "scrapy_pokedex/data/output/images"
+IMAGES_STORE = "./scrapy_pokedex/data/output/images"
 IMAGES_EXPIRES = 90
 IMAGES_THUMBS = {
     "small": (50, 50),
