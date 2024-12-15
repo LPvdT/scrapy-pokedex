@@ -17,7 +17,6 @@ DEFAULT_OUTPUT: bool = False
 
 # Scrapy settings
 BOT_NAME = "scrapy_pokedex"
-
 SPIDER_MODULES: list[str] = ["scrapy_pokedex.spiders"]
 NEWSPIDER_MODULE = "scrapy_pokedex.spiders"
 
@@ -116,7 +115,6 @@ HTTPCACHE_EXPIRATION_SECS = 60 * 15
 HTTPCACHE_DIR = "httpcache"
 HTTPCACHE_IGNORE_HTTP_CODES: list[str | int] = []
 HTTPCACHE_STORAGE = "scrapy.extensions.httpcache.FilesystemCacheStorage"
-
 
 # Enable and configure logging
 # See https://docs.scrapy.org/en/latest/topics/logging.html
