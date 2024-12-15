@@ -8,8 +8,9 @@ A Scrapy project for scraping Pokémon data.
   - [To do](#to-do)
     - [Further implement scraper](#further-implement-scraper)
       - [Open](#open)
+        - [Issues](#issues)
       - [Closed](#closed)
-    - [Issues](#issues)
+        - [Issues](#issues-1)
   - [Project Structure](#project-structure)
   - [Requirements](#requirements)
   - [Installation](#installation)
@@ -27,6 +28,8 @@ A Scrapy project for scraping Pokémon data.
 
 - [ ] Implement [downloading and processing files and images](https://docs.scrapy.org/en/latest/topics/media-pipeline.html#downloading-and-processing-files-and-images)
 
+##### Issues<a name="issues"></a>
+
 #### Closed<a name="closed"></a>
 
 - [x] Implement spider
@@ -38,7 +41,7 @@ A Scrapy project for scraping Pokémon data.
   - Use the free options, without the requirement of all kind of shitty paid options
 - [x] Implement agent header rotation
 
-### Issues<a name="issues"></a>
+##### Issues<a name="issues-1"></a>
 
 - [x] `name_alt` field is omitted from output when it is not populated. I want to have it present as an empty string instead.
 
