@@ -99,7 +99,10 @@ ITEM_PIPELINES: Dict[str, int | None] = {
 
 # Media pipeline settings
 FILES_STORE = "scrapy_pokedex/data/output/files"
+FILES_EXPIRES = 90
+
 IMAGES_STORE = "scrapy_pokedex/data/output/images"
+IMAGES_EXPIRES = 90
 IMAGES_THUMBS = {
     "small": (50, 50),
     "big": (270, 270),
