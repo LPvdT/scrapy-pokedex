@@ -24,9 +24,9 @@ A Scrapy project for scraping Pokémon data.
     - [x] Implement [Item Loader](https://docs.scrapy.org/en/latest/topics/loaders.html)
   - [ ] Implement middleware
     - Where applicable
-  - [ ] Implement proxies
+  - [x] Implement proxies
     - Use the free options, without the requirement of all kind of shitty paid options
-  - [ ] Implement agent header rotation
+  - [x] Implement agent header rotation
 
 ### Issues<a name="issues"></a>
 
