@@ -2,7 +2,7 @@
     "version": "0.1.0",
     "configurations": [
         {
-            "name": "Python: Launch Scrapy Spider",
+            "name": "Debug 'pokedex_list' spider",
             "type": "debugpy",
             "request": "launch",
             "module": "scrapy",
