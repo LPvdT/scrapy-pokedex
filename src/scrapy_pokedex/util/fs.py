@@ -11,6 +11,8 @@ def _setup_filesystem(enable_debug: bool = False) -> None:
     logger.add(
         LOG_DIR.joinpath("info_log").with_suffix(".log"),
         level=logging.INFO,
+        backtrace=False,
+        diagnose=True,  # DEBUG
         rotation="1 week",
     )
 
