@@ -11,8 +11,9 @@ from typing import Dict
 
 # Custom config entries
 SPIDER = "pokedex_list"
-ENABLE_DEBUG: bool = False
-MAX_ROWS: int | None = 50
+ENABLE_DEBUG: bool = True
+MAX_ROWS: int | None = 1000
+BATCH_SIZE: int | None = 100
 DEFAULT_OUTPUT: bool = False
 
 # Scrapy settings
@@ -27,14 +28,14 @@ NEWSPIDER_MODULE = "scrapy_pokedex.spiders"
 ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-CONCURRENT_REQUESTS = 1
+CONCURRENT_REQUESTS = 16
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 10
+DOWNLOAD_DELAY = 0.5
 # The download delay setting will honor only one of:
-CONCURRENT_REQUESTS_PER_DOMAIN = 1
+CONCURRENT_REQUESTS_PER_DOMAIN = 16
 # CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
@@ -103,10 +104,10 @@ FILES_EXPIRES = 90
 
 IMAGES_STORE = "./scrapy_pokedex/data/output/images"
 IMAGES_EXPIRES = 90
-IMAGES_THUMBS = {
-    "small": (50, 50),
-    "big": (270, 270),
-}
+# IMAGES_THUMBS = {
+#     "small": (50, 50),
+#     "big": (270, 270),
+# }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
