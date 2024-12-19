@@ -36,7 +36,6 @@ class PokedexLoader(ItemLoader):
 
     # Output processors
     icon_url_out = to_url
-    image_urls_out = to_url
     number_out = to_int
     name_out = Compose(MapCompose(lambda v: v.strip()), TakeFirst())
     name_alt_out = Compose(MapCompose(lambda v: v.strip()), TakeFirst())
