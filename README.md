@@ -25,6 +25,7 @@ While the documentation of Scrapy is good, it often involves referring to the ra
 
 - [ ] Implement more `spiders` to scrape different parts of the site
 - [ ] Implement `FilesPipeline` somewhere
+- [ ] Implement CICD where applicable
 
 ### Open<a name="open"></a>
 
