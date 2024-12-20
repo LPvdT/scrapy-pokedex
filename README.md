@@ -1,16 +1,17 @@
 # Scrapy Pokedex<a name="scrapy-pokedex"></a>
 
-A Scrapy project for scraping Pokémon data.
+A Scrapy project for scraping Pokémon data. Trying to implement as much features and extensions of the library as I can, to demonstrate its usage to developers who are not yet that familiar with the library.
+
+While the documentation of Scrapy is good, it often involves referring to the raw source code to figure things out. This may be daunting to new developers in the field of web scraping/crawling.
 
 <!-- mdformat-toc start --slug=github --maxlevel=6 --minlevel=1 -->
 
 - [Scrapy Pokedex](#scrapy-pokedex)
   - [To do](#to-do)
-    - [Further implement scraper](#further-implement-scraper)
-      - [Open](#open)
-        - [Issues](#issues)
-      - [Closed](#closed)
-        - [Issues](#issues-1)
+    - [Open](#open)
+      - [Issues](#issues)
+    - [Closed](#closed)
+      - [Issues](#issues-1)
   - [Project Structure](#project-structure)
   - [Requirements](#requirements)
   - [Installation](#installation)
@@ -22,16 +23,16 @@ A Scrapy project for scraping Pokémon data.
 
 ## To do<a name="to-do"></a>
 
-### Further implement scraper<a name="further-implement-scraper"></a>
+- [ ] Implement more `spiders` to scrape different parts of the site
+- [ ] Implement `FilesPipeline` somewhere
 
-#### Open<a name="open"></a>
+### Open<a name="open"></a>
 
-- [ ] Implement [downloading and processing files and images](https://docs.scrapy.org/en/latest/topics/media-pipeline.html#downloading-and-processing-files-and-images)
+#### Issues<a name="issues"></a>
 
-##### Issues<a name="issues"></a>
+### Closed<a name="closed"></a>
 
-#### Closed<a name="closed"></a>
-
+- [x] Implement [downloading and processing files and images](https://docs.scrapy.org/en/latest/topics/media-pipeline.html#downloading-and-processing-files-and-images)
 - [x] Implement spider
 - Implement pipelines
   - [x] Implement [Item Loader](https://docs.scrapy.org/en/latest/topics/loaders.html)
@@ -41,7 +42,7 @@ A Scrapy project for scraping Pokémon data.
   - Use the free options, without the requirement of all kind of shitty paid options
 - [x] Implement agent header rotation
 
-##### Issues<a name="issues-1"></a>
+#### Issues<a name="issues-1"></a>
 
 - [x] `name_alt` field is omitted from output when it is not populated. I want to have it present as an empty string instead.
 
