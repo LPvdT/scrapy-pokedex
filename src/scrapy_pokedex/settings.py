@@ -12,7 +12,7 @@ from typing import Dict
 # Custom config entries
 SPIDER = "pokedex_list"
 ENABLE_DEBUG: bool = True
-MAX_ROWS: int | None = 1000
+MAX_ROWS: int | None = 10_000
 BATCH_SIZE: int | None = 100
 DEFAULT_OUTPUT: bool = False
 
